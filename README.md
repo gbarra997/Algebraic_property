@@ -1,6 +1,6 @@
 Author: Giuseppe Barranco
 ID: 985853 
-This is a project written in python for the course "Scientific Programming". Master's degree in Bioinformatics for computational genomics
+# This is a project written in python for the course "Scientific Programming". Master's degree in Bioinformatics for computational genomics
 
 
 
