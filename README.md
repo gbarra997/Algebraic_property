@@ -1,4 +1,11 @@
-# Algebraic_property
+Author: Giuseppe Barranco
+ID: 985853 
+This is a project written in python for the course "Scientific Programming". Master's degree in Bioinformatics for computational genomics
+
+
+
+# Algebraic property
+
 This project evaluates how different types of processes can deal with matrix multiplication.
 Mathematically speaking, the product of two matrices is not always commutative. In a few specific case, it can be known in advance, but as for the nature of the matrix multiplication (row*colum) itself, it cannot be taken for granted that A*B == B*A.
 One specific case is when B = A * k, i.e. when B is the result of matrix A multiplied by a scalar, then the product of A, B and B, A is the same. 
@@ -22,3 +29,7 @@ The "Test_performance.py" is a code that aims to test how different implementati
 4. Multiprocessing aims to find the best number of processes that can speed up this calculation. It is not easy to state wether more or less processes are better. It usually depends on the computational complexity, in this case, the dimension of the matrix. Employing 10 processes for a 2*2 matrix is not the best strategy, since it would take more to create them instead of performing these multiplications. 
 The user can provide:
 * The directory where to save the picture. If not, the files will be saved in the script folder
+
+
+
+Note on Numpy one thread: To work with only one thread, that is, to force the libraries (BLAS,..) that numpy uses to have only one thread, I had to define an additional script file(subprocessnumpy.py). I invoke the very same function with a different environment, since is a new process, 
