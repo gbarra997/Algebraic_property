@@ -5,7 +5,9 @@ ID: 985853
 
 
 # Algebraic Properties
+
 ## Test_algebraic_properties.py
+
 This project evaluates how different types of processes can deal with matrix multiplication.
 Mathematically speaking, the product of two matrices is not always commutative. In a few specific cases, it can be known in advance, but as for the nature of the matrix multiplication (row*colum) itself, it cannot be taken for granted that A*B == B*A.
 One specific case is when B = A * k, i.e. when B is the result of matrix A multiplied by a scalar, then the product of A, B and B, A is the same. 
