@@ -38,9 +38,15 @@ The user can provide:
 
 
 
-Note on Numpy one thread: To work with only one thread, that is,  forcing the libraries (BLAS, Openblas,..) numpy depends on, I had to define an additional script file (subprocessnumpy.py). In this script, I invoke the very same function ("numpy_only") but with a different name of threads, otherwise, as a child process, it would have used the same setting as the parent process.
+
+# Outcome
 
 What we would expect is: 
 1. the sequential is terribly slow.
 2. The numpy with one thread and the 1 thread parallel multiprocessing should have a similar time since they have the same resource in terms of CPU so they cannot parallelize the process.
 3. Given that in this setting Numpy would always be the fastest also for the further hidden implementation, we would expect that the parallel methods with the higher number should be the faster, at least like numpy. That is indeed true but not always. For smaller matrices, it is not worth it to create more than x processes because the time to create and manage them would be probably more than what is required for the computation itself.
+
+
+# Notes
+To work with only one thread, that is,  forcing the libraries (BLAS, Openblas,..) numpy depends on, I had to define an additional script file (subprocessnumpy.py). In this script, I invoke the very same function ("numpy_only") but with a different name of threads, otherwise, as a child process, it would have used the same setting as the parent process.
+
