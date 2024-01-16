@@ -13,9 +13,9 @@ One specific case is when B = A * k, i.e. when B is the result of matrix A multi
 
 The "Test_algebraic_properties.py" is a code that aims to test this algebraic property and verify it in different modalities. Generally it creates 10 random squared matrices of the given dimension, multiply them for a scalar and then test if are the same. 
 The user can provide several inputs:
-* Dimension of the matrix you want to test. It will generate a D*D matrix. It can be every positive number ≥ 2. 
-* Scalar: Any number
-* Modality: The script can run three different modalities:
+* -d Dimension of the matrix you want to test. It will generate a D*D matrix. It can be every positive number ≥ 2. 
+* -k Scalar: Any number
+* -m Modality: The script can run three different modalities:
   1. Fully **sequential**: It employs only loops and simple operations. Therefore, it is very slow. Don't provide a dimension greater than 200 unless you don't want to spend ages waiting
   2. **Numpy**: It only uses the numpy function. It's known that numpy employs multithreading/multiprocessing strategies managing to release the GIL, therefore it can easily handle big matrices
   3. **Multiprocessing**: It will create parallel and independent processes equal to the number you would provide. Each matrix will be split and each piece tested in a different process. These processes will share the available CPU. Since it employs numpy, if you provide, for example, 7 processes, then each process will have one thread so all the CPU will likely be involved. 
@@ -34,8 +34,9 @@ There are 4 main implementations:
 2. Numpy with only one thread: Since the constraint is defined at the beginning of the code, numpy cannot use multiplethreads so it has to work with one only. 
 3. Numpy with multi-threads: This will create one different and independent process and Numpy will use all the available resources.
 4. Multiprocessing aims to find the best number of processes to speed up this calculation. It is not easy to state whether more or less processes are better. It usually depends on the computational complexity, in this case, the dimension of the matrix. Employing 10 processes for a 2*2 matrix is not the best strategy, since it would overhead.
+
 The user can provide:
-* The directory where to save the picture. If not, the files will be saved in the script folder. -sv
+* -sv The directory where to save the picture. If not, the files will be saved in the script folder. 
 
 
 
