@@ -16,12 +16,12 @@ The user can provide several inputs:
 * -d Dimension of the matrix you want to test. It will generate a D*D matrix. It can be every positive number ≥ 2. 
 * -k Scalar: Any number
 * -m Modality: The script can run three different modalities:
-  1. Fully **sequential**: It employs only loops and simple operations. Therefore, it is very slow. Don't provide a dimension greater than 200 unless you don't want to spend ages waiting
-  2. **Numpy**: It only uses the numpy function. It's known that numpy employs multithreading/multiprocessing strategies managing to release the GIL, therefore it can easily handle big matrices
-  3. **Multiprocessing**: It will create parallel and independent processes equal to the number you would provide. Each matrix will be split and each piece tested in a different process. These processes will share the available CPU. Since it employs numpy, if you provide, for example, 7 processes, then each process will have one thread so all the CPU will likely be involved. 
-    * If you select this mode you can also insert the p (process) parameter to select the number you
+  1. -s Fully **sequential**: It employs only loops and simple operations. Therefore, it is very slow. Don't provide a dimension greater than 200 unless you don't want to spend ages waiting
+  2. -n **Numpy**: It only uses the numpy function. It's known that numpy employs multithreading/multiprocessing strategies managing to release the GIL, therefore it can easily handle big matrices
+  3. -m **Multiprocessing**: It will create parallel and independent processes equal to the number you would provide. Each matrix will be split and each piece tested in a different process. These processes will share the available CPU. Since it employs numpy, if you provide, for example, 7 processes, then each process will have one thread so all the CPU will likely be involved. 
+    * -p If you select this mode you can also insert the p (process) parameter to select the number you
       want. If none, the max available will be used. 
-* The last parameter is "verbose", whether you can print the output of the process or just the time.
+* -v The last parameter is "verbose", whether you can print the output of the process or just the time.
 
 # Test_performance.py
 
