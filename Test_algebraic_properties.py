@@ -16,12 +16,11 @@ parser.add_argument("-v","--verbose", nargs='?', const='n', choices=['y', 'n'], 
 args = parser.parse_args()
 N = args.dimension
 k = args.scalar_factor
-path = args.save_file
 m = args.modality
 v = args.verbose
 p = args.process
 
-if p != None and m in ["s","sequential","n","numpy"]:
+if p and m in ["s","sequential","n","numpy"]:
      parser.error("-p/--process argument cannot be used with sequential or numpy modes.")
 
 
@@ -37,10 +36,9 @@ if __name__ == "__main__":
     if m == "sequential" or m == "s":
         start_time1 = time.time() 
         for _ in range(1,11):
-            print("\n\nMatrix number:", _)
             functions.fun_for_sequential(N,k,v)
         end_time1 = time.time()
-        print("These matrix are equal")
+        print("These matrices are equal")
         elapsed_time1 = end_time1 - start_time1 
         print(f'The entire process using sequential code only (no external modules) took: {elapsed_time1}')
         
@@ -71,4 +69,7 @@ if __name__ == "__main__":
 ### all process                                                                       ###
 #########################################################################################
     if m == "multi" or m == "m":
-            functions.multi_process(N,k,p,v)
+        if type(p)!=None:
+            print(f'The entire process using numpy took: {functions.multi_process(N=N,k=k,v=v)}')
+        else:
+            print(f'The entire process using numpy took: {functions.multi_process(N,k,p,v)}')

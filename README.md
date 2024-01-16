@@ -11,7 +11,8 @@ This project evaluates how different types of processes can deal with matrix mul
 Mathematically speaking, the product of two matrices is not always commutative. In a few specific cases, it can be known in advance, but as for the nature of the matrix multiplication (row*colum) itself, it cannot be taken for granted that A*B == B*A.
 One specific case is when B = A * k, i.e. when B is the result of matrix A multiplied by a scalar, then the product of A, B and B, A is the same. 
 
-The "Test_algebraic_properties.py" is a code that aims to test this algebraic property and verify it in different modalities. The user can provide several inputs:
+The "Test_algebraic_properties.py" is a code that aims to test this algebraic property and verify it in different modalities. Generally it creates 10 random squared matrices of the given dimension, multiply them for a scalar and then test if are the same. 
+The user can provide several inputs:
 * Dimension of the matrix you want to test. It will generate a D*D matrix. It can be every positive number ≥ 2. 
 * Scalar: Any number
 * Modality: The script can run three different modalities:
@@ -26,7 +27,7 @@ The "Test_algebraic_properties.py" is a code that aims to test this algebraic pr
 
 
 
-The "Test_performance.py" is an additional code that aims to test how different implementations work with matrix multiplications. In the end, the code will provide one plot with several lines, one for each modality, and a data frame with the recorded time.
+The "Test_performance.py" is an additional code that aims to test how different implementations work with matrix multiplications. The process is the same as above, 10 random squared matrix of given dimensions: Sequential 50,100,200,400 and for the rest 500,1000,2000,4000. In the end, the code will provide one plot with several lines, one for each modality. The x axis represents the dimensions and the y axis the time in second. A data frame with the recorded time is also produced.
 Normally python cannot go for multithreading or multiprocessing unless specific packages are used. So it uses only one thread.
 There are 4 main implementations: 
 1. Sequential: Only loops. For this mode, the size of the matrix will be smaller due to the extremely "trivial" and time-consuming code.
